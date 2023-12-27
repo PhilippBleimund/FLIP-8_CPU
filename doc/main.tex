@@ -1,0 +1,53 @@
+%\nocite{*} %Zeigt alle im Literaturverzeichnis stehenden Einträge
+%draft 
+\documentclass[12pt,a4paper, draft]{article}
+\usepackage[left=1.9cm, right=1.9cm, top=2.5cm, bottom=2.5cm]{geometry}
+\usepackage[onehalfspacing]{setspace}
+\usepackage[utf8]{inputenc}
+\usepackage{ngerman}
+\usepackage{bibgerm}
+\usepackage{fancyhdr}
+\setlength\parindent{0pt}
+
+\input{src/packages.tex}
+
+\begin{document}
+
+    \counterwithout{figure}{section}
+    \counterwithout{table}{section}
+    \counterwithin{lstlisting}{section}
+    \counterwithout{equation}{section}
+
+    %Kopfzeile und Fußzeile
+    \pagestyle{fancy}
+    \fancyhf{}
+    \lhead{Physik-Praktikum}
+    \rhead{Versuche mit dem mathematischen Pendel}
+    \lfoot{Hochschule Bielefeld, Fachbereich IuM}
+    \cfoot{\thepage}
+    \renewcommand{\headrulewidth}{0pt}
+
+    \include{src/Titelseite.tex}
+
+    \pagenumbering{gobble}
+    \tableofcontents
+    \newpage
+
+    \frontmatter
+
+    %Abbildungsverzeichnis
+    \addcontentsline{toc}{section}{\listfigurename}
+    \listoffigures
+
+    %Tabellenverzeichnis
+    \addcontentsline{toc}{section}{\listtablename}
+    \listoftables
+    \newpage
+
+    \mainmatter
+
+    % HIER ALLE DATEIEN mit \input{} einfügen
+
+
+    \clearpage
+\end{document}

@@ -1,0 +1,77 @@
+\usepackage{graphicx}
+\renewcommand{\listfigurename}{Abbildungsverzeichnis}
+\renewcommand{\listtablename}{Tabellenverzeichnis}
+\usepackage{subfig}
+\usepackage{wrapfig}
+\usepackage{caption}
+\usepackage{sidecap}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{shapes,arrows}
+\usetikzlibrary{arrows.meta}
+\usepackage{environ}
+\usepackage{tikz-3dplot}
+\usepackage{import}
+\usepackage{calc}
+\usepackage{pgfmath}
+\usepackage{ifthen}
+\usepackage{pgfplots}
+\usepgfplotslibrary{fillbetween}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+\usepackage{makecell}
+\usepackage{xr}
+\usepackage{xurl}
+\usepackage{footnote}
+\usepackage[perpage, hang]{footmisc}
+\usepackage{tablefootnote}
+\usepackage{tabularx}
+\usepackage{textcomp}
+\usepackage[section]{placeins}
+\usepackage[ngerman]{hyperref}
+\usepackage[ngerman]{cleveref}
+\setlength\footnotemargin{10pt}
+\newcommand{\captionref} [1]{\textit{\nameref{#1}}}
+\newcommand{\tableref} [1]{\textit{Tabelle \ref{#1}}}
+\usepackage{listings}
+\usepackage{chngcntr}
+\usepackage{lipsum}
+\usepackage{color, colortbl}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage[export]{adjustbox}
+\newfloat{Ausschnitt}{htbp}{loa}
+\newcolumntype{x}[1]{>{\centering\arraybackslash}p{#1}}
+\usepackage{standalone}
+\usepackage{blindtext}
+\usepackage{pdfpages}
+
+
+%define book numbering:
+\def\frontmatter{%
+    \pagenumbering{Roman}
+    \setcounter{page}{1}
+    \renewcommand{\thesection}{\Roman{section}}
+}%
+
+\def\mainmatter{%
+    \pagenumbering{arabic}
+    \setcounter{page}{1}
+    \setcounter{section}{0}
+    \renewcommand{\thesection}{\arabic{section}}
+}%
+
+\def\backmatter{%
+    \setcounter{section}{0}
+    \renewcommand{\thesection}{\Alph{section}}
+}%
+
+\tikzset{%
+  block/.style    = {draw, thick, rectangle, minimum height = 3em,
+    minimum width = 3em},
+  sum/.style      = {draw, circle, node distance = 1.5cm}, % Adder
+  input/.style    = {coordinate}, % Input
+  output/.style   = {coordinate}, % Output
+   base/.style = {rectangle, rounded corners, draw=black, minimum width=2cm, minimum height=1cm, text centered}
+}
