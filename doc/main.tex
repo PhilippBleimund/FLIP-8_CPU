@@ -10,6 +10,10 @@
 \setlength\parindent{0pt}
 
 \input{src/packages.tex}
+\usepackage{bytefield}
+\usepackage{ifthen}
+
+\input{images/drawbits.tex}
 
 \begin{document}
 
@@ -47,6 +51,8 @@
     \mainmatter
 
     % HIER ALLE DATEIEN mit \input{} einfügen
+
+    \input{src/language.tex}
 
 
     \clearpage

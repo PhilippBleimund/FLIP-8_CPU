@@ -1,0 +1,17 @@
+\newcommand\drawbits[1]{%
+    \tikz[x=1.5ex,y=1.5ex,every path/.style={draw=black,semithick}]{%
+        \foreach \y [count=\i] in {#1} {
+            \expandafter\ifx\y 0
+                \draw (\i,0) rectangle (\i+1,1);
+            \fi
+            \expandafter\ifx\y 1
+                \draw (\i,0) rectangle (\i+1,1);
+                \filldraw[fill=black] (\i+0.2,0.2) rectangle (\i*1+0.8,0.8);
+            \fi
+            \expandafter\ifx\y X
+                \draw (\i,0) rectangle (\i+1,1);
+                \filldraw[fill=black] (\i+0.2,0.2) -- (\i*1+0.8,0.8) -- (\i+0.2,0.8);
+            \fi
+        }%
+    }%
+}
