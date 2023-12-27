@@ -4,7 +4,52 @@ The FLIP-8 CPU works with simple 8 bit instructions. The different compute modes
 
 \subsection{Overview}
 
+\begin{figure}[ht]
+    \center
+    \begin{bytefield}[bitwidth=40pt,bitheight=20pt]{8}
+        \bitheader{0-7} \\
+        \bitbox{2}{Mode} &
+        \bitbox{6}{Opcode}
+    \end{bytefield}
+    \caption{instruction structure}
+\end{figure}
+
 \begin{table}[ht]
     \center
     \input{tables/intructionOverview.tex}
+    \caption{Main CPU Modes}
+\end{table}
+
+
+\subsubsection{Immediate Mode}
+
+When the CPU is in Immediate Mode the programmer is able to inject values in the first registry.
+With the remaining six bits the can use up to 64 numbers. These could be used for custom flags.
+
+\begin{figure}[ht]
+    \center
+    \begin{bytefield}[bitwidth=40pt,bitheight=20pt]{8}
+        \bitheader{0-7} \\
+        \bitbox{2}{Immediate} &
+        \bitbox{6}{Number}
+    \end{bytefield}
+    \caption{immediate mode}
+\end{figure}
+
+\begin{figure}[ht]
+    \center 
+    \input{images/ImmediateRegisters.tex}
+    \caption{Immediate Mode Register}
+\end{figure}
+
+\newpage
+\subsubsection{Compute}
+
+When the CPU is in Compute Mode the ALU uses the two numbers in REG1 and REG2 and stores the output of the selected Operation in REG3. The Operations can be selected with the opcode. The available Operation can be found in \autoref{fig:Compute}.
+
+\begin{table}[ht]
+    \center
+    \input{tables/computeOperations.tex}
+    \caption{Compute Operation}
+    \label{fig:Compute}
 \end{table}
