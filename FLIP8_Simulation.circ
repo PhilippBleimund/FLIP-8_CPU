@@ -150,6 +150,21 @@
       <a name="fanout" val="3"/>
       <a name="incoming" val="3"/>
     </comp>
+    <comp lib="0" loc="(310,940)" name="Pin">
+      <a name="appearance" val="classic"/>
+      <a name="label" val="Instruction"/>
+      <a name="width" val="3"/>
+    </comp>
+    <comp lib="0" loc="(310,960)" name="Pin">
+      <a name="appearance" val="classic"/>
+      <a name="label" val="Input1"/>
+      <a name="width" val="8"/>
+    </comp>
+    <comp lib="0" loc="(310,980)" name="Pin">
+      <a name="appearance" val="classic"/>
+      <a name="label" val="Input2"/>
+      <a name="width" val="8"/>
+    </comp>
     <comp lib="0" loc="(460,590)" name="Tunnel">
       <a name="facing" val="east"/>
       <a name="label" val="CPU_OUT"/>
@@ -285,7 +300,16 @@ a3 c3 6 81 aa 44 9d 1
     <comp lib="5" loc="(570,480)" name="7-Segment Display">
       <a name="labelvisible" val="true"/>
     </comp>
+    <comp lib="5" loc="(620,830)" name="7-Segment Display">
+      <a name="labelvisible" val="true"/>
+    </comp>
     <comp lib="5" loc="(630,480)" name="7-Segment Display">
+      <a name="labelvisible" val="true"/>
+    </comp>
+    <comp lib="5" loc="(680,830)" name="7-Segment Display">
+      <a name="labelvisible" val="true"/>
+    </comp>
+    <comp lib="5" loc="(740,830)" name="7-Segment Display">
       <a name="labelvisible" val="true"/>
     </comp>
     <comp lib="5" loc="(750,1610)" name="DipSwitch"/>
@@ -309,7 +333,13 @@ a3 c3 6 81 aa 44 9d 1
       <a name="binvalue" val="8"/>
     </comp>
     <comp lib="9" loc="(570,480)" name="BCD_to_7_Segment_decoder"/>
+    <comp lib="9" loc="(620,830)" name="BCD_to_7_Segment_decoder"/>
     <comp lib="9" loc="(630,480)" name="BCD_to_7_Segment_decoder"/>
+    <comp lib="9" loc="(630,940)" name="Binary_to_BCD_converter">
+      <a name="binvalue" val="8"/>
+    </comp>
+    <comp lib="9" loc="(680,830)" name="BCD_to_7_Segment_decoder"/>
+    <comp lib="9" loc="(740,830)" name="BCD_to_7_Segment_decoder"/>
     <comp lib="9" loc="(800,80)" name="BCD_to_7_Segment_decoder"/>
     <comp lib="9" loc="(810,190)" name="Binary_to_BCD_converter">
       <a name="binvalue" val="8"/>
@@ -318,6 +348,7 @@ a3 c3 6 81 aa 44 9d 1
     <comp lib="9" loc="(920,80)" name="BCD_to_7_Segment_decoder"/>
     <comp loc="(1870,930)" name="ALU"/>
     <comp loc="(1880,1140)" name="singleNumberCond"/>
+    <comp loc="(580,940)" name="ALU"/>
     <wire from="(1000,450)" to="(1050,450)"/>
     <wire from="(1010,570)" to="(1010,590)"/>
     <wire from="(1030,310)" to="(1030,430)"/>
@@ -505,14 +536,21 @@ a3 c3 6 81 aa 44 9d 1
     <wire from="(2010,1110)" to="(2010,1140)"/>
     <wire from="(2010,810)" to="(2010,1110)"/>
     <wire from="(220,200)" to="(220,210)"/>
+    <wire from="(310,940)" to="(360,940)"/>
+    <wire from="(310,960)" to="(360,960)"/>
+    <wire from="(310,980)" to="(360,980)"/>
     <wire from="(410,230)" to="(480,230)"/>
     <wire from="(460,590)" to="(490,590)"/>
     <wire from="(520,560)" to="(520,570)"/>
     <wire from="(580,560)" to="(580,570)"/>
+    <wire from="(580,940)" to="(600,940)"/>
+    <wire from="(630,910)" to="(630,920)"/>
     <wire from="(640,560)" to="(640,570)"/>
+    <wire from="(690,910)" to="(690,920)"/>
     <wire from="(720,280)" to="(770,280)"/>
     <wire from="(750,1560)" to="(750,1590)"/>
     <wire from="(750,1560)" to="(890,1560)"/>
+    <wire from="(750,910)" to="(750,920)"/>
     <wire from="(770,190)" to="(770,240)"/>
     <wire from="(770,190)" to="(780,190)"/>
     <wire from="(770,240)" to="(1360,240)"/>
@@ -797,6 +835,18 @@ a3 c3 6 81 aa 44 9d 1
       <a name="incoming" val="8"/>
       <a name="spacing" val="5"/>
     </comp>
+    <comp lib="0" loc="(1390,550)" name="Splitter">
+      <a name="appear" val="right"/>
+      <a name="fanout" val="8"/>
+      <a name="incoming" val="8"/>
+      <a name="spacing" val="5"/>
+    </comp>
+    <comp lib="0" loc="(1570,570)" name="Splitter">
+      <a name="facing" val="west"/>
+      <a name="fanout" val="8"/>
+      <a name="incoming" val="8"/>
+      <a name="spacing" val="5"/>
+    </comp>
     <comp lib="0" loc="(2180,290)" name="Pin">
       <a name="appearance" val="classic"/>
       <a name="facing" val="west"/>
@@ -931,14 +981,16 @@ a3 c3 6 81 aa 44 9d 1
     <comp lib="1" loc="(1310,770)" name="Controlled Buffer">
       <a name="control" val="left"/>
     </comp>
-    <comp lib="1" loc="(1700,390)" name="Controlled Buffer">
-      <a name="control" val="left"/>
-      <a name="width" val="8"/>
-    </comp>
-    <comp lib="1" loc="(1790,430)" name="NOT Gate">
-      <a name="width" val="8"/>
-    </comp>
-    <comp lib="1" loc="(2090,390)" name="Controlled Buffer">
+    <comp lib="1" loc="(1510,580)" name="XOR Gate"/>
+    <comp lib="1" loc="(1510,630)" name="XOR Gate"/>
+    <comp lib="1" loc="(1510,680)" name="XOR Gate"/>
+    <comp lib="1" loc="(1510,730)" name="XOR Gate"/>
+    <comp lib="1" loc="(1510,780)" name="XOR Gate"/>
+    <comp lib="1" loc="(1510,830)" name="XOR Gate"/>
+    <comp lib="1" loc="(1510,880)" name="XOR Gate"/>
+    <comp lib="1" loc="(1510,930)" name="XOR Gate"/>
+    <comp lib="1" loc="(1800,450)" name="AND Gate"/>
+    <comp lib="1" loc="(1830,510)" name="Controlled Buffer">
       <a name="control" val="left"/>
       <a name="width" val="8"/>
     </comp>
@@ -1009,8 +1061,7 @@ a3 c3 6 81 aa 44 9d 1
     <comp lib="2" loc="(310,290)" name="Decoder">
       <a name="select" val="3"/>
     </comp>
-    <comp loc="(1660,390)" name="eightBitAdder"/>
-    <comp loc="(2050,390)" name="eightBitAdder"/>
+    <comp loc="(1790,510)" name="eightBitAdder"/>
     <wire from="(1030,420)" to="(1040,420)"/>
     <wire from="(1030,470)" to="(1040,470)"/>
     <wire from="(1030,520)" to="(1040,520)"/>
@@ -1100,26 +1151,54 @@ a3 c3 6 81 aa 44 9d 1
     <wire from="(1320,660)" to="(1320,710)"/>
     <wire from="(1320,710)" to="(1320,760)"/>
     <wire from="(1350,290)" to="(1350,410)"/>
-    <wire from="(1350,290)" to="(1700,290)"/>
-    <wire from="(1390,370)" to="(1390,430)"/>
-    <wire from="(1390,370)" to="(1720,370)"/>
-    <wire from="(1390,430)" to="(1440,430)"/>
-    <wire from="(1410,340)" to="(1410,410)"/>
-    <wire from="(1410,340)" to="(1730,340)"/>
-    <wire from="(1410,410)" to="(1440,410)"/>
-    <wire from="(1660,390)" to="(1680,390)"/>
-    <wire from="(1690,250)" to="(1690,380)"/>
-    <wire from="(1700,290)" to="(1700,390)"/>
-    <wire from="(1700,290)" to="(2090,290)"/>
-    <wire from="(1720,370)" to="(1720,430)"/>
-    <wire from="(1720,430)" to="(1760,430)"/>
-    <wire from="(1730,340)" to="(1730,410)"/>
-    <wire from="(1730,410)" to="(1830,410)"/>
-    <wire from="(1790,430)" to="(1830,430)"/>
-    <wire from="(2050,390)" to="(2070,390)"/>
-    <wire from="(2080,260)" to="(2080,380)"/>
-    <wire from="(2090,290)" to="(2090,390)"/>
-    <wire from="(2090,290)" to="(2180,290)"/>
+    <wire from="(1350,290)" to="(1840,290)"/>
+    <wire from="(1390,370)" to="(1390,550)"/>
+    <wire from="(1410,340)" to="(1410,530)"/>
+    <wire from="(1410,530)" to="(1570,530)"/>
+    <wire from="(1410,560)" to="(1450,560)"/>
+    <wire from="(1410,610)" to="(1450,610)"/>
+    <wire from="(1410,660)" to="(1450,660)"/>
+    <wire from="(1410,710)" to="(1450,710)"/>
+    <wire from="(1410,760)" to="(1450,760)"/>
+    <wire from="(1410,810)" to="(1450,810)"/>
+    <wire from="(1410,860)" to="(1450,860)"/>
+    <wire from="(1410,910)" to="(1450,910)"/>
+    <wire from="(1440,260)" to="(1440,600)"/>
+    <wire from="(1440,260)" to="(1680,260)"/>
+    <wire from="(1440,600)" to="(1440,650)"/>
+    <wire from="(1440,600)" to="(1450,600)"/>
+    <wire from="(1440,650)" to="(1440,700)"/>
+    <wire from="(1440,650)" to="(1450,650)"/>
+    <wire from="(1440,700)" to="(1440,750)"/>
+    <wire from="(1440,700)" to="(1450,700)"/>
+    <wire from="(1440,750)" to="(1440,800)"/>
+    <wire from="(1440,750)" to="(1450,750)"/>
+    <wire from="(1440,800)" to="(1440,850)"/>
+    <wire from="(1440,800)" to="(1450,800)"/>
+    <wire from="(1440,850)" to="(1440,900)"/>
+    <wire from="(1440,850)" to="(1450,850)"/>
+    <wire from="(1440,900)" to="(1440,950)"/>
+    <wire from="(1440,900)" to="(1450,900)"/>
+    <wire from="(1440,950)" to="(1450,950)"/>
+    <wire from="(1510,580)" to="(1550,580)"/>
+    <wire from="(1510,630)" to="(1550,630)"/>
+    <wire from="(1510,680)" to="(1550,680)"/>
+    <wire from="(1510,730)" to="(1550,730)"/>
+    <wire from="(1510,780)" to="(1550,780)"/>
+    <wire from="(1510,830)" to="(1550,830)"/>
+    <wire from="(1510,880)" to="(1550,880)"/>
+    <wire from="(1510,930)" to="(1550,930)"/>
+    <wire from="(1570,550)" to="(1570,570)"/>
+    <wire from="(1680,260)" to="(1680,470)"/>
+    <wire from="(1680,470)" to="(1750,470)"/>
+    <wire from="(1700,250)" to="(1700,430)"/>
+    <wire from="(1700,430)" to="(1750,430)"/>
+    <wire from="(1790,510)" to="(1810,510)"/>
+    <wire from="(1800,450)" to="(1820,450)"/>
+    <wire from="(1820,450)" to="(1820,500)"/>
+    <wire from="(1830,510)" to="(1840,510)"/>
+    <wire from="(1840,290)" to="(1840,510)"/>
+    <wire from="(1840,290)" to="(2180,290)"/>
     <wire from="(260,300)" to="(310,300)"/>
     <wire from="(260,340)" to="(420,340)"/>
     <wire from="(260,370)" to="(400,370)"/>
@@ -1128,8 +1207,8 @@ a3 c3 6 81 aa 44 9d 1
     <wire from="(330,220)" to="(800,220)"/>
     <wire from="(330,230)" to="(1050,230)"/>
     <wire from="(330,240)" to="(1300,240)"/>
-    <wire from="(330,250)" to="(1690,250)"/>
-    <wire from="(330,260)" to="(2080,260)"/>
+    <wire from="(330,250)" to="(1700,250)"/>
+    <wire from="(330,260)" to="(1440,260)"/>
     <wire from="(400,370)" to="(400,430)"/>
     <wire from="(400,370)" to="(660,370)"/>
     <wire from="(420,340)" to="(420,390)"/>
