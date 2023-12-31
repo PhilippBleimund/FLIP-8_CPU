@@ -2,8 +2,14 @@
 
 load 22
 
+mov r0, r2 
+calc add 
+load 2
 mov r0, r1
-mov r1, r2
-mov r2, r3
-mov r3, r4
-mov r4, r5
+calc add
+mov r3, r2
+
+load 5
+jmp
+
+mov r3, out

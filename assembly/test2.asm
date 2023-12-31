@@ -32,3 +32,5 @@ load 7
 jmp
 
 mov r5, out
+load 22
+jmp
